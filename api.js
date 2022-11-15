@@ -20,33 +20,32 @@ showCharacters = (characters) => {
     <div class="modal">
         <div class="modal-content">
             <span class="close-button">×</span>
-            <h1>Hello, I am a modal!</h1>
+            <h1>${character.name}</h1>
+            <p>${character.species}</p>
+            <p>${character.status}</p>
+            <p>${character.origin.name}</p>
         </div>
     </div>
     `;
 
     charactersDiv.append(characterElement);
-
-    
   });
-};
 
+  const modal = document.querySelector(".modal");
+  const trigger = document.querySelector(".trigger");
+  const closeButton = document.querySelector(".close-button");
 
-
-const modal = document.querySelector(".modal");
-const trigger = document.querySelector(".trigger");
-const closeButton = document.querySelector(".close-button");
-
-function toggleModal() {
+  function toggleModal() {
     modal.classList.toggle("show-modal");
-}
+  }
 
-function windowOnClick(event) {
+  function windowOnClick(event) {
     if (event.target === modal) {
-        toggleModal();
+      toggleModal();
     }
-}
+  }
 
-trigger.addEventListener("click", toggleModal);
-closeButton.addEventListener("click", toggleModal);
-window.addEventListener("click", windowOnClick);
+  trigger.addEventListener("click", toggleModal);
+  closeButton.addEventListener("click", toggleModal);
+  window.addEventListener("click", windowOnClick);
+};
