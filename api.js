@@ -5,8 +5,6 @@
 // Para importar ficheros utilizar Import y Export.
 // Extra: Si sobra tiempo, añadir paginación al listado.
 
-// Inicio.
-
 fetch("https://rickandmortyapi.com/api/character")
   .then((response) => response.json())
   .then((characters) => showCharacters(characters.results));
@@ -48,3 +46,23 @@ showCharacters = (characters) => {
   closeButton.addEventListener("click", toggleModal);
   window.addEventListener("click", windowOnClick);
 };
+
+
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
+
+let counter = 1;
+next.addEventListener('click', () => {
+
+    fetch(`https://rickandmortyapi.com/api/character/?page=${++counter}`)
+    .then((response) => response.json())
+    .then((characters) => showCharacters(characters.results));
+});
+
+
+prev.addEventListener('click', () => {
+
+    fetch(`https://rickandmortyapi.com/api/character/?page=${--counter}`)
+    .then((response) => response.json())
+    .then((characters) => showCharacters(characters.results));
+});
