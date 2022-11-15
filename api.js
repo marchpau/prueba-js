@@ -5,6 +5,8 @@
 // Para importar ficheros utilizar Import y Export.
 // Extra: Si sobra tiempo, añadir paginación al listado.
 
+// API que trae los personajes. En principio OK.
+
 fetch("https://rickandmortyapi.com/api/character")
   .then((response) => response.json())
   .then((characters) => showCharacters(characters.results));
@@ -28,6 +30,8 @@ showCharacters = (characters) => {
     charactersList.append(characterElement);
   });
 
+  // Modal que se abre solo en el primer personaje. Algo es algo.
+
   const modal = document.querySelector(".modal");
   const trigger = document.querySelector(".trigger");
   const closeButton = document.querySelector(".close-button");
@@ -47,6 +51,7 @@ showCharacters = (characters) => {
   window.addEventListener("click", windowOnClick);
 };
 
+// Paginación que añade, no pagina. Algo es algo.
 
 const prev = document.getElementById('prev');
 const next = document.getElementById('next');
