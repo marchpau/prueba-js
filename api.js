@@ -7,9 +7,27 @@
 
 // Inicio.
 
-fetch("https://pokeapi.co/api/v2/pokemon?limit=10&offset=0")
-  .then((response) => response.json())
-  .then((data) => console.log(data))
-  .catch((error) => console.log("Algo falló.", error));
+fetch("https://rickandmortyapi.com/api/character")
+.then(response => response.json())
+.then(characters => showCharacters(characters.results));
+
+showCharacters = characters => {
+    const charactersDiv = document.querySelector("#characters-list");
+    characters.map(character => {
+      const characterElement = document.createElement("li");
+      characterElement.innerText = `${character.name}`;
+      charactersDiv.append(characterElement);
+    });
+
+
+    const charactersModal = document.querySelector("#characters-info");
+    characters.map(character => {
+      const characterInfo = document.createElement("p");
+      characterInfo.innerText = `${character.species}`;
+      charactersModal.append(characterInfo);
+    });
+
+
+  }
 
   

@@ -1,0 +1,15 @@
+html {
+    font-family: monospace;
+}
+
+#pokemon-list {
+    margin: 0 auto;
+}
+
+li {
+    text-transform: capitalize;
+}
+
+li:hover {
+    text-decoration: underline;
+}
