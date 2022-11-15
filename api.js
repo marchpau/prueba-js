@@ -12,23 +12,22 @@ fetch("https://rickandmortyapi.com/api/character")
   .then((characters) => showCharacters(characters.results));
 
 showCharacters = (characters) => {
-  const charactersDiv = document.querySelector("#characters-list");
+  const charactersList = document.querySelector("#characters-list");
   characters.map((character) => {
     const characterElement = document.createElement("li");
-    characterElement.innerHTML += `
-    <button class="trigger">${character.name}</button>
+    characterElement.innerHTML = `
+    <span class="trigger">${character.name}</span>
     <div class="modal">
         <div class="modal-content">
             <span class="close-button">×</span>
-            <h1>${character.name}</h1>
+            <h2>${character.name}</h2>
             <p>${character.species}</p>
             <p>${character.status}</p>
             <p>${character.origin.name}</p>
         </div>
     </div>
     `;
-
-    charactersDiv.append(characterElement);
+    charactersList.append(characterElement);
   });
 
   const modal = document.querySelector(".modal");
